@@ -410,7 +410,6 @@ public class GameLogic implements PlayableLogic {
 
 
         switchTurn();
-s
         System.out.println("Undo completed. Removed " + placedDisc.getType() + " from " + pos +
                 " and restored flipped discs.");
     }
