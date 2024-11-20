@@ -408,7 +408,6 @@ public class GameLogic implements PlayableLogic {
             System.out.println("Undo: Unflippable count increased for " + originalPlayer);
         }
 
-hello
         switchTurn();
         System.out.println("Undo completed. Removed " + placedDisc.getType() + " from " + pos +
                 " and restored flipped discs.");
