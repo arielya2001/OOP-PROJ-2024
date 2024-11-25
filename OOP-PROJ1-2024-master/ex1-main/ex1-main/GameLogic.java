@@ -157,7 +157,7 @@ public class GameLogic implements PlayableLogic {
     public boolean locate_disc(Position a, Disc disc) {
         if (disc instanceof BombDisc) {
             if (currentPlayer.getNumber_of_bombs() <= 0) {
-                System.out.println("No bombs left for player: " + currentPlayer);
+//                System.out.println("No bombs left for player: " + currentPlayer);
                 return false;
             }
             currentPlayer.reduce_bomb();
@@ -292,7 +292,7 @@ public class GameLogic implements PlayableLogic {
         } else {
             System.out.println("The game is a tie! Both players have " + countPlayer1 + " discs.");
         }
-        System.out.println("Total discs on the board: " + totalDiscs);
+        System.out.println("Total discs on the board: " + totalDiscs + "\n");
     }
 
     @Override
@@ -382,7 +382,7 @@ public class GameLogic implements PlayableLogic {
     @Override
     public void undoLastMove() {
         if (moveHistory.isEmpty()) {
-            System.out.println("No previous move available to undo");
+            System.out.println("No previous move available to undo\n");
             return;
         }
 
@@ -401,14 +401,14 @@ public class GameLogic implements PlayableLogic {
             originalPlayer.number_of_unflippedable++;
         }
         System.out.println("removing " + placedDisc.getType() + " from (" +
-                (pos.getRow() + 1) + ", " + (pos.getCol() + 1) + ")");
+                (pos.getRow() + 1) + ", " + (pos.getCol() + 1) + ")\n");
 
         for (Position flippedPos : lastMove.getFlippedPositions()) {
             Disc flippedDisc = board[flippedPos.getRow()][flippedPos.getCol()];
             if (flippedDisc == null)
                 continue;
             System.out.println("\tUndo: flipping back " + flippedDisc.getType() + " in (" +
-                    (flippedPos.getRow() + 1) + ", " + (flippedPos.getCol() + 1) + ")");
+                    (flippedPos.getRow() + 1) + ", " + (flippedPos.getCol() + 1) + ")\n");
         }
         switchTurn();
     }
